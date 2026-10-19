@@ -1,0 +1,11 @@
+# Start with a base image containing Java runtime
+FROM eclipse-temurin:21-jdk
+
+# Information around who maintains the image
+LABEL "org.opencontainers.image.authors"="ghofrane"
+
+# Add the application's jar to the image
+COPY target/chanson-microservice-0.0.1-SNAPSHOT.jar chanson-microservice-0.0.1-SNAPSHOT.jar
+
+# Execute the application
+ENTRYPOINT ["java", "-jar", "chanson-microservice-0.0.1-SNAPSHOT.jar"]
